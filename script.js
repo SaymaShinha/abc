@@ -23,15 +23,14 @@ for (let i = 0; i < numbers.length; i++) {
 }
 
 document.getElementById("repeated_number").innerText =
-  "2. Repeated number in numbers array: " + counts;
+  "2. Repeated number in numbers array: " + JSON.stringify(counts);
 
-console.log(counts);
+console.log(JSON.stringify(counts));
 
 // count vowels in a string
 
 let name = "Apple";
 let vowels = ["A", "E", "I", "O", "U", "a", "e", "i", "o", "u"];
-let vowel = "AEIOUaeiou";
 let vowel_in_name = [];
 
 for (let i = 0; i < name.length; i++) {
@@ -161,9 +160,13 @@ function totalSalaryProvidedByCompany(given_array) {
   let total_salary = 0;
 
   for (let i = 0; i < given_array.length; i++) {
-    total_salary +=
-      given_array[i].increment * given_array[i].experience +
+    let current_salary = 0;
+    for(let j = 1; j <= given_array[i].experience; j++){
+        current_salary = (given_array[i].increment * j) +
       given_array[i].starting;
+    }
+    total_salary +=
+      current_salary;
   }
 
   document.getElementById("total_slary_provided_by_company").innerText =
