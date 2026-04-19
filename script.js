@@ -161,7 +161,7 @@ function totalSalaryProvidedByCompany(given_array) {
 
   for (let i = 0; i < given_array.length; i++) {
     let current_salary = 0;
-    for(let j = 1; j <= given_array[i].experience; j++){
+    for(let j = 0; j <= given_array[i].experience; j++){
         current_salary = (given_array[i].increment * j) +
       given_array[i].starting;
     }
